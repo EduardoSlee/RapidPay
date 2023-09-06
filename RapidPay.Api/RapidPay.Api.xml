@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RapidPay.Api</name>
+    </assembly>
+    <members>
+        <member name="T:RapidPay.Api.Configuration.ServiceCollectionExtensions">
+            <summary>
+            Static class used to add layers of services to the ASP.NET core service collection.
+            </summary>
+        </member>
+        <member name="M:RapidPay.Api.Configuration.ServiceCollectionExtensions.ConfigureApiServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add configuration api services.
+            </summary>
+            <param name="services">ASP.NET core service collection.</param>
+            /// <param name="configuration">Configuration settings.</param>
+            <returns>ASP.NET core service collection.</returns>
+        </member>
+        <member name="M:RapidPay.Api.Configuration.ServiceCollectionExtensions.AddBusinessServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add business layer services.
+            </summary>
+            <param name="services">ASP.NET core service collection.</param>
+            <returns>ASP.NET core service collection.</returns>
+        </member>
+        <member name="M:RapidPay.Api.Configuration.ServiceCollectionExtensions.AddDataServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add data access services and initialize Db context.
+            </summary>
+            <param name="services">ASP.NET core service collection.</param>
+            <param name="configuration">Configuration settings.</param>
+            <returns>ASP.NET core service collection.</returns>
+        </member>
+        <member name="M:RapidPay.Api.Configuration.ServiceCollectionExtensions.AddPresentationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add presentation services to the ASP.NET core service collection.
+            </summary>
+            <param name="services">ASP.NET core service collection.</param>
+            <returns>ASP.NET core service collection.</returns>
+        </member>
+        <member name="T:RapidPay.Api.Controllers.AuthenticationController">
+            <summary>
+            Authentication controller.
+            </summary>
+        </member>
+        <member name="M:RapidPay.Api.Controllers.AuthenticationController.Login(RapidPay.Services.Users.Models.UserInput)">
+            <summary>
+            Authenticates a user and generates a JWT token.
+            </summary>
+            <param name="userInput">User's login information.</param>
+        </member>
+        <member name="T:RapidPay.Api.Controllers.CardManagementController">
+            <summary>
+            Card Management controller with authentication.
+            </summary>
+        </member>
+        <member name="M:RapidPay.Api.Controllers.CardManagementController.#ctor(RapidPay.Services.CreditCards.ICreditCardsService,RapidPay.Services.Payments.IPaymentsService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RapidPay.Api.Controllers.CardManagementController"/> class.
+            Card Management controller constructor.
+            </summary>
+            <param name="creditCardsService">credit cards service.</param>
+            <param name="paymentsService">payments service.</param>
+        </member>
+        <member name="M:RapidPay.Api.Controllers.CardManagementController.AddCreditCard(RapidPay.Services.CreditCards.Models.CreditCardInput)">
+            <summary>Create a new credit card.</summary>
+            <param name="creditCardInput">Credit Card data input.</param>
+            <response code ="200">Returns credit card.</response>
+            <response code ="401">Returns an Unauthorized Error.</response>
+            <response code ="403">Returns a Forbidden Error.</response>
+            <response code ="500">Returns a server error.</response>
+            <remarks>Credit Card.</remarks>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:RapidPay.Api.Controllers.CardManagementController.GetCardBalance(RapidPay.Services.CreditCards.Models.CardBalanceInput)">
+            <summary>Get card balance.</summary>
+            <param name="cardBalanceInput">Get card balance data input.</param>
+            <response code ="200">Returns card balance.</response>
+            <response code ="401">Returns an Unauthorized Error.</response>
+            <response code ="403">Returns a Forbidden Error.</response>
+            <response code ="500">Returns a server error.</response>
+            <remarks>Credit Card.</remarks>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:RapidPay.Api.Controllers.CardManagementController.AddPayment(RapidPay.Services.Payments.Models.PaymentInput)">
+            <summary>Create a new payment.</summary>
+            <param name="paymentInput">Payment data input.</param>
+            <response code ="200">Returns payment.</response>
+            <response code ="401">Returns an Unauthorized Error.</response>
+            <response code ="403">Returns a Forbidden Error.</response>
+            <response code ="500">Returns a server error.</response>
+            <remarks>Payment.</remarks>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+    </members>
+</doc>
